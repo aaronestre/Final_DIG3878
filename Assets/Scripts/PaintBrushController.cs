@@ -6,6 +6,8 @@ public class PaintBrushController : MonoBehaviour
 {
 
     public GameObject brush;
+
+    [Header("Paint Brush Settings")]
     public float Cooldown = 1.0f;
     public bool CanSwipe = true;
     public static bool IsSwiping = false;
@@ -50,6 +52,9 @@ public class PaintBrushController : MonoBehaviour
                 break;
             case 3:
                 brush.GetComponent<Renderer>().material.color = Color.blue;
+                break;
+            case 5:
+                brush.GetComponent<Renderer>().material.color = Color.black;
                 break;
 
         }

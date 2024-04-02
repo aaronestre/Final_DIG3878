@@ -4,24 +4,32 @@ using UnityEngine;
 
 public class CollisionDetection : MonoBehaviour
 {
-    public Material interacted;
+
+    public bool interacted = false;
+
+    private PhysicMaterial currMaterial;
+
+    [Header("Availabel Materials")]
     public PhysicMaterial bouncy;
     public PhysicMaterial maxFriction;
     public PhysicMaterial zeroFriction;
+    public PhysicMaterial basic;
 
-    private PhysicMaterial currMaterial;
+    void Update() {
+
+        if (Input.GetKeyDown("p")) {
+
+            GetComponent<Rigidbody>().AddForce(Vector3.right, ForceMode.Impulse);
+
+        }
+
+    }
 
     void OnTriggerEnter(Collider col) {
 
         if (col.name == "PaintBrush" && PaintBrushController.IsSwiping && PaintBrushController.currColor != 0) {
 
-            GetComponent<Rigidbody>().useGravity = true;
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
-            GetComponent<Renderer>().material = interacted;
-
-            currMaterial = GetPhysicMaterial(PaintBrushController.currColor);
-            GetComponent<Collider>().sharedMaterial = currMaterial;
+            PaintInteractable(col);
 
         }
 
@@ -31,16 +39,27 @@ public class CollisionDetection : MonoBehaviour
 
         if (col.name == "PaintBrush" && PaintBrushController.IsSwiping && PaintBrushController.currColor != 0) {
 
-            GetComponent<Rigidbody>().useGravity = true;
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
-            GetComponent<Renderer>().material = interacted;
-            
-            currMaterial = GetPhysicMaterial(PaintBrushController.currColor);
-            GetComponent<Collider>().sharedMaterial = currMaterial;
+            PaintInteractable(col);
 
         }
 
+    }
+
+    void PaintInteractable(Collider col) {
+
+        currMaterial = GetPhysicMaterial(PaintBrushController.currColor);
+        GetComponent<Collider>().sharedMaterial = currMaterial;
+        GetComponent<Rigidbody>().useGravity = true;
+        interacted = true;
+
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+
+        if ( currMaterial == maxFriction ) {
+
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ;
+
+        }
     }
 
     PhysicMaterial GetPhysicMaterial(int color) {
@@ -48,16 +67,19 @@ public class CollisionDetection : MonoBehaviour
         switch (color) { 
 
             case 1:
+                GetComponent<Renderer>().material.color = Color.red;
                 return bouncy;
-                break;
             case 2:
+                GetComponent<Renderer>().material.color = Color.green;
                 return maxFriction;
-                break;
             case 3: 
+                GetComponent<Renderer>().material.color = Color.blue;
                 return zeroFriction;
-                break;
+            case 5:
+                GetComponent<Renderer>().material.color = Color.black;
+                return basic;
             default: 
-                return zeroFriction;
+                return zeroFriction;;
 
         }
 
