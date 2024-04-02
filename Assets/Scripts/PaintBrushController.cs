@@ -9,6 +9,7 @@ public class PaintBrushController : MonoBehaviour
     public float Cooldown = 1.0f;
     public bool CanSwipe = true;
     public static bool IsSwiping = false;
+    public static int currColor = 0;
 
     void Update() {
 
@@ -19,6 +20,37 @@ public class PaintBrushController : MonoBehaviour
                 PaintSwipe();
 
             }
+
+        }
+
+        for ( int a = 1; a <= 5; a++ ) {
+
+            if ( Input.GetKeyDown(a.ToString() ) ) {
+
+                UpdateColor(a);
+
+            }
+
+        }
+
+    }
+
+    public void UpdateColor(int _color) {
+
+        Debug.Log(_color);
+        currColor = _color;
+
+        switch ( _color ) {
+
+            case 1:
+                brush.GetComponent<Renderer>().material.color = Color.red;
+                break;
+            case 2: 
+                brush.GetComponent<Renderer>().material.color = Color.green;
+                break;
+            case 3:
+                brush.GetComponent<Renderer>().material.color = Color.blue;
+                break;
 
         }
 
