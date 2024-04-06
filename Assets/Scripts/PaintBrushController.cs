@@ -1,17 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PaintBrushController : MonoBehaviour
 {
 
     public GameObject brush;
+    public GameObject glob;
+    public Image UIBrush;
 
     [Header("Paint Brush Settings")]
     public float Cooldown = 1.0f;
     public bool CanSwipe = true;
     public static bool IsSwiping = false;
     public static int currColor = 0;
+    
 
     void Update() {
 
@@ -45,16 +49,20 @@ public class PaintBrushController : MonoBehaviour
         switch ( _color ) {
 
             case 1:
-                brush.GetComponent<Renderer>().material.color = Color.red;
+                glob.GetComponent<Renderer>().material.color = Color.red;
+                UIBrush.color = Color.red;
                 break;
             case 2: 
-                brush.GetComponent<Renderer>().material.color = Color.green;
+                glob.GetComponent<Renderer>().material.color = Color.green;
+                UIBrush.color = Color.green;
                 break;
             case 3:
-                brush.GetComponent<Renderer>().material.color = Color.blue;
+                glob.GetComponent<Renderer>().material.color = Color.blue;
+                UIBrush.color = Color.blue;
                 break;
-            case 5:
-                brush.GetComponent<Renderer>().material.color = Color.black;
+            case 4:
+                glob.GetComponent<Renderer>().material.color = Color.black;
+                UIBrush.color = Color.black;
                 break;
 
         }

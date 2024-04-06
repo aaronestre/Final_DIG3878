@@ -15,15 +15,6 @@ public class CollisionDetection : MonoBehaviour
     public PhysicMaterial zeroFriction;
     public PhysicMaterial basic;
 
-    void Update() {
-
-        if (Input.GetKeyDown("p")) {
-
-            GetComponent<Rigidbody>().AddForce(Vector3.right, ForceMode.Impulse);
-
-        }
-
-    }
 
     void OnTriggerEnter(Collider col) {
 
@@ -54,7 +45,8 @@ public class CollisionDetection : MonoBehaviour
 
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
 
-        if ( currMaterial == maxFriction ) {
+
+        if ( currMaterial == maxFriction || currMaterial == basic) {
 
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ;
@@ -75,7 +67,7 @@ public class CollisionDetection : MonoBehaviour
             case 3: 
                 GetComponent<Renderer>().material.color = Color.blue;
                 return zeroFriction;
-            case 5:
+            case 4:
                 GetComponent<Renderer>().material.color = Color.black;
                 return basic;
             default: 
