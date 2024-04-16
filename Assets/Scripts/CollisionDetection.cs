@@ -8,6 +8,7 @@ public class CollisionDetection : MonoBehaviour
     public bool interacted = false;
 
     private PhysicMaterial currMaterial;
+    public int currColor;
 
     [Header("Availabel Materials")]
     public PhysicMaterial bouncy;
@@ -39,6 +40,7 @@ public class CollisionDetection : MonoBehaviour
     void PaintInteractable(Collider col) {
 
         currMaterial = GetPhysicMaterial(PaintBrushController.currColor);
+        currColor = PaintBrushController.currColor;
         GetComponent<Collider>().sharedMaterial = currMaterial;
         GetComponent<Rigidbody>().useGravity = true;
         interacted = true;

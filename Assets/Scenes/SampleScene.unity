@@ -533,7 +533,7 @@ GameObject:
   - component: {fileID: 575109790}
   - component: {fileID: 575109789}
   m_Layer: 5
-  m_Name: Text (TMP) (2)
+  m_Name: Colors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1151,7 +1151,7 @@ GameObject:
   - component: {fileID: 951394042}
   - component: {fileID: 951394041}
   m_Layer: 5
-  m_Name: Text (TMP) (3)
+  m_Name: PickUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1775,7 +1775,7 @@ GameObject:
   - component: {fileID: 1356385283}
   - component: {fileID: 1356385282}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Change Color
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1820,7 +1820,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Use your paint brush to change the color of your paintbrush
+  m_text: Use your number keys to change the color of your paint brush
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2750,7 +2750,7 @@ GameObject:
   - component: {fileID: 1690714480}
   - component: {fileID: 1690714479}
   m_Layer: 5
-  m_Name: Text (TMP) (4)
+  m_Name: Throw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4132,6 +4132,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 65b2b126619674323a3f6df06c5e0bdc, type: 2}
+    - target: {fileID: 7670370464267080221, guid: ba99479a5211c45ee97487bade7ea102, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7670370464267080221, guid: ba99479a5211c45ee97487bade7ea102, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.9979072
