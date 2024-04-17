@@ -8,10 +8,13 @@ public class DoorController : MonoBehaviour
     public GameObject Door;
     public bool canOpen = false;
     public int platesNeeded = 2;
+    public Transform endPlace;
     private int currPlates = 0;
     private Vector3 orgDoorPos;
     private bool moveBack = false;
     private Color orgDoorColor;
+
+    public Text platesNeededText;
 
     private GameObject[] plates;
 
@@ -27,7 +30,7 @@ public class DoorController : MonoBehaviour
 
         if ( col.gameObject.tag == "Interactable" ) {
 
-            if ( Door.transform.position.y > orgDoorPos.y / 9 ) {
+            if ( Door.transform.position.y > endPlace.position.y ) {
 
                 Door.transform.Translate(0, -0.01f, 0);
                 moveBack = false;
@@ -44,7 +47,7 @@ public class DoorController : MonoBehaviour
 
             Door.GetComponent<Renderer>().material.color = Color.green;
 
-            if ( Door.transform.position.y > 0.4f ) {
+            if ( Door.transform.position.y > endPlace.position.y ) {
 
                 Door.transform.Translate(0, -0.01f, 0);
                 moveBack = false;
@@ -81,7 +84,7 @@ public class DoorController : MonoBehaviour
 
             Door.GetComponent<Renderer>().material.color = Color.green;
 
-            if ( Door.transform.position.y > orgDoorPos.y / 9 ) {
+            if ( Door.transform.position.y > endPlace.position.y ) {
 
                 Door.transform.Translate(0, -0.01f, 0);
                 moveBack = false;
@@ -94,6 +97,8 @@ public class DoorController : MonoBehaviour
             moveBack = true;
 
         }
+
+        platesNeededText.text = "" + (platesNeeded - currPlates);
 
         if ( moveBack ) { 
 

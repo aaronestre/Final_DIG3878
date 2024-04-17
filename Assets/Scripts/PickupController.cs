@@ -88,7 +88,7 @@ public class PickupController : MonoBehaviour
 
         heldObjRB.useGravity = true;
         heldObjRB.drag = 1;
-        heldObjRB.constraints = RigidbodyConstraints.None;
+        heldObjRB.constraints = initConsraints;
 
         heldObjRB.transform.parent = null;
         heldObject = null;
