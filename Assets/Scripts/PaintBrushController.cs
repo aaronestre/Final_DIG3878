@@ -9,13 +9,18 @@ public class PaintBrushController : MonoBehaviour
     public GameObject brush;
     public GameObject glob;
     public Image UIBrush;
+    public Image ColorSelection;
+
+    [Header("UI Stuff")]
+    public Sprite UIRed;
+    public Sprite UIGreen;
+    public Sprite UIBlue;
 
     [Header("Paint Brush Settings")]
     public float Cooldown = 1.0f;
     public bool CanSwipe = true;
     public static bool IsSwiping = false;
     public static int currColor = 0;
-    
 
     void Update() {
 
@@ -29,7 +34,7 @@ public class PaintBrushController : MonoBehaviour
 
         }
 
-        for ( int a = 1; a <= 5; a++ ) {
+        for ( int a = 1; a <= 3; a++ ) {
 
             if ( Input.GetKeyDown(a.ToString() ) ) {
 
@@ -50,19 +55,18 @@ public class PaintBrushController : MonoBehaviour
 
             case 1:
                 glob.GetComponent<Renderer>().material.color = Color.red;
+                ColorSelection.GetComponent<Image>().sprite = UIRed;
                 UIBrush.color = Color.red;
                 break;
             case 2: 
                 glob.GetComponent<Renderer>().material.color = Color.green;
+                ColorSelection.GetComponent<Image>().sprite = UIGreen;
                 UIBrush.color = Color.green;
                 break;
             case 3:
                 glob.GetComponent<Renderer>().material.color = Color.blue;
+                ColorSelection.GetComponent<Image>().sprite = UIBlue;
                 UIBrush.color = Color.blue;
-                break;
-            case 4:
-                glob.GetComponent<Renderer>().material.color = Color.black;
-                UIBrush.color = Color.black;
                 break;
 
         }
@@ -91,6 +95,12 @@ public class PaintBrushController : MonoBehaviour
 
         yield return new WaitForSeconds(1.0f);
         IsSwiping = false;
+
+    }
+
+    void SwitchUI(GameObject curr) {
+
+
 
     }
 }
