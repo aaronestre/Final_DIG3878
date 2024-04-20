@@ -12,6 +12,7 @@ public class PickupController : MonoBehaviour
 
     [SerializeField] private float PickUpRange = 5f;
     [SerializeField] private float PickUpForce = 150f;
+    [SerializeField] private float throwForce = 150f;
 
     // Update is called once per frame
     void Update()
@@ -45,6 +46,12 @@ public class PickupController : MonoBehaviour
 
             //Move Object
             MoveObj();
+
+            if ( Input.GetKeyDown("f")) {
+
+                ThrowObj(20f);
+
+            }
 
         }
     }
@@ -84,6 +91,17 @@ public class PickupController : MonoBehaviour
         heldObjRB.constraints = initConsraints;
 
         heldObjRB.transform.parent = null;
+        heldObject = null;
+
+    }
+
+    void ThrowObj(float force) { 
+
+        heldObjRB.transform.parent = null;
+        heldObjRB.useGravity = true;
+        heldObjRB.constraints = initConsraints;
+        heldObjRB.drag = 1;
+        heldObjRB.AddForce(-HoldArea.transform.forward * throwForce, ForceMode.Impulse);
         heldObject = null;
 
     }

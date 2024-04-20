@@ -8,6 +8,7 @@ public class CollisionDetection : MonoBehaviour
     public bool interacted = false;
 
     private PhysicMaterial currMaterial;
+    public int currColor;
 
     [Header("Availabel Materials")]
     public PhysicMaterial bouncy;
@@ -15,15 +16,6 @@ public class CollisionDetection : MonoBehaviour
     public PhysicMaterial zeroFriction;
     public PhysicMaterial basic;
 
-    void Update() {
-
-        if (Input.GetKeyDown("p")) {
-
-            GetComponent<Rigidbody>().AddForce(Vector3.right, ForceMode.Impulse);
-
-        }
-
-    }
 
     void OnTriggerEnter(Collider col) {
 
@@ -48,13 +40,15 @@ public class CollisionDetection : MonoBehaviour
     void PaintInteractable(Collider col) {
 
         currMaterial = GetPhysicMaterial(PaintBrushController.currColor);
+        currColor = PaintBrushController.currColor;
         GetComponent<Collider>().sharedMaterial = currMaterial;
         GetComponent<Rigidbody>().useGravity = true;
         interacted = true;
 
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
 
-        if ( currMaterial == maxFriction ) {
+
+        if ( currMaterial == maxFriction || currMaterial == basic) {
 
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ;
@@ -75,7 +69,7 @@ public class CollisionDetection : MonoBehaviour
             case 3: 
                 GetComponent<Renderer>().material.color = Color.blue;
                 return zeroFriction;
-            case 5:
+            case 4:
                 GetComponent<Renderer>().material.color = Color.black;
                 return basic;
             default: 

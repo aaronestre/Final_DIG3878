@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7911408456058248572}
   - component: {fileID: 4127231455337895819}
   - component: {fileID: 8866380263195374527}
+  - component: {fileID: 3983129073150696903}
   m_Layer: 0
   m_Name: Cube_Interactable
   m_TagString: Interactable
@@ -127,12 +128,12 @@ Rigidbody:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
+  m_ImplicitCom: 0
+  m_ImplicitTensor: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 14
   m_CollisionDetection: 0
 --- !u!114 &8866380263195374527
 MonoBehaviour:
@@ -146,4 +147,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86526ee0563cf4e0f9837d8665b7c464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interacted: {fileID: 2100000, guid: 8cf589ea80c3d419bb7e733373b108a2, type: 2}
+  interacted: 0
+  currColor: 0
+  bouncy: {fileID: 13400000, guid: 9f93f63d068b08c459038c40fce897d8, type: 2}
+  maxFriction: {fileID: 13400000, guid: e52fb17f9b1e7fd48b8955f1391d3688, type: 2}
+  zeroFriction: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
+  basic: {fileID: 13400000, guid: 4ff2a40e46041454696b04029a1ee7ec, type: 2}
+--- !u!114 &3983129073150696903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573173144919512575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fcbd5d6dd8c347b79409a28b15bcddb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -1,11 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PaintBrushController : MonoBehaviour
 {
 
     public GameObject brush;
+    public GameObject glob;
+    public Image UIBrush;
+    public Image ColorSelection;
+
+    [Header("UI Stuff")]
+    public Sprite UIRed;
+    public Sprite UIGreen;
+    public Sprite UIBlue;
 
     [Header("Paint Brush Settings")]
     public float Cooldown = 1.0f;
@@ -25,7 +34,7 @@ public class PaintBrushController : MonoBehaviour
 
         }
 
-        for ( int a = 1; a <= 5; a++ ) {
+        for ( int a = 1; a <= 3; a++ ) {
 
             if ( Input.GetKeyDown(a.ToString() ) ) {
 
@@ -45,16 +54,19 @@ public class PaintBrushController : MonoBehaviour
         switch ( _color ) {
 
             case 1:
-                brush.GetComponent<Renderer>().material.color = Color.red;
+                glob.GetComponent<Renderer>().material.color = Color.red;
+                ColorSelection.GetComponent<Image>().sprite = UIRed;
+                UIBrush.color = Color.red;
                 break;
             case 2: 
-                brush.GetComponent<Renderer>().material.color = Color.green;
+                glob.GetComponent<Renderer>().material.color = Color.green;
+                ColorSelection.GetComponent<Image>().sprite = UIGreen;
+                UIBrush.color = Color.green;
                 break;
             case 3:
-                brush.GetComponent<Renderer>().material.color = Color.blue;
-                break;
-            case 5:
-                brush.GetComponent<Renderer>().material.color = Color.black;
+                glob.GetComponent<Renderer>().material.color = Color.blue;
+                ColorSelection.GetComponent<Image>().sprite = UIBlue;
+                UIBrush.color = Color.blue;
                 break;
 
         }
@@ -83,6 +95,12 @@ public class PaintBrushController : MonoBehaviour
 
         yield return new WaitForSeconds(1.0f);
         IsSwiping = false;
+
+    }
+
+    void SwitchUI(GameObject curr) {
+
+
 
     }
 }
