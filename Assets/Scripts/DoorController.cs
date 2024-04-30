@@ -14,12 +14,16 @@ public class DoorController : MonoBehaviour
     private bool moveBack = false;
     private Color orgDoorColor;
 
+    public AudioClip ding;
+    private AudioSource audio;
+
     public Text platesNeededText;
 
     private GameObject[] plates;
 
     void Start() {
 
+        audio = GetComponent<AudioSource>();
         orgDoorPos = Door.transform.position;
         orgDoorColor = Door.GetComponent<Renderer>().material.color;
         plates = GameObject.FindGameObjectsWithTag ("PressurePlates");

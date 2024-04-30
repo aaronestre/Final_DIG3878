@@ -101,7 +101,7 @@ public class PickupController : MonoBehaviour
         heldObjRB.useGravity = true;
         heldObjRB.constraints = initConsraints;
         heldObjRB.drag = 1;
-        heldObjRB.AddForce(-HoldArea.transform.forward * throwForce, ForceMode.Impulse);
+        heldObjRB.AddForce(HoldArea.transform.forward * throwForce, ForceMode.Impulse);
         heldObject = null;
 
     }

@@ -10,6 +10,8 @@ public class PaintBrushController : MonoBehaviour
     public GameObject glob;
     public Image UIBrush;
     public Image ColorSelection;
+    public AudioClip swipe;
+    private AudioSource audio;
 
     [Header("UI Stuff")]
     public Sprite UIRed;
@@ -21,6 +23,12 @@ public class PaintBrushController : MonoBehaviour
     public bool CanSwipe = true;
     public static bool IsSwiping = false;
     public static int currColor = 0;
+
+    void Start() {
+
+        audio = GetComponent<AudioSource>();
+
+    }
 
     void Update() {
 
@@ -74,6 +82,8 @@ public class PaintBrushController : MonoBehaviour
     }
 
     public void PaintSwipe() {
+
+        audio.PlayOneShot(swipe);
 
         IsSwiping = true;
         CanSwipe = false;

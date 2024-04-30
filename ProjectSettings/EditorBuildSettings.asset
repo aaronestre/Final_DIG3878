@@ -13,14 +13,17 @@ EditorBuildSettings:
     guid: fa73c5b1703c743bab3efd0d602e79ee
   - enabled: 1
     path: Assets/Scenes/Level_Two.unity
-    guid: de090c40c7dab4d4d982308412afc837
+    guid: 0302d6c9f021f4302818bb81685e3ba4
   - enabled: 1
     path: Assets/Scenes/Level_Three.unity
-    guid: 716c50482acec4253aec90763596d439
+    guid: de090c40c7dab4d4d982308412afc837
+  - enabled: 1
+    path: Assets/Scenes/Level_Four.unity
+    guid: 006aad1f17a9f45a69271a5765f1f3eb
   - enabled: 1
     path: Assets/Scenes/CreditScreen.unity
     guid: 88ef9d4977d1a41f091f5f87323c656b
   - enabled: 1
-    path: Assets/HowToPlay.unity
+    path: Assets/Scenes/HowToPlay.unity
     guid: 232df59e485514ab5b2da6cb11c5801f
   m_configObjects: {}

@@ -8,7 +8,7 @@ public class CollisionDetection : MonoBehaviour
     public bool interacted = false;
 
     private PhysicMaterial currMaterial;
-    public int currColor;
+    public PhysicMaterial startMaterial;
 
     [Header("Availabel Materials")]
     public PhysicMaterial bouncy;
@@ -16,12 +16,29 @@ public class CollisionDetection : MonoBehaviour
     public PhysicMaterial zeroFriction;
     public PhysicMaterial basic;
 
+    void Start() {
+
+        if ( startMaterial != null) {
+
+            StartInteractable();
+
+        }
+
+    }
+
 
     void OnTriggerEnter(Collider col) {
 
         if (col.name == "PaintBrush" && PaintBrushController.IsSwiping && PaintBrushController.currColor != 0) {
 
             PaintInteractable(col);
+
+        }
+
+        if ( col.name == "DestroyCubes") {
+
+
+            Destroy(gameObject);
 
         }
 
@@ -40,7 +57,6 @@ public class CollisionDetection : MonoBehaviour
     void PaintInteractable(Collider col) {
 
         currMaterial = GetPhysicMaterial(PaintBrushController.currColor);
-        currColor = PaintBrushController.currColor;
         GetComponent<Collider>().sharedMaterial = currMaterial;
         GetComponent<Rigidbody>().useGravity = true;
         interacted = true;
@@ -54,6 +70,26 @@ public class CollisionDetection : MonoBehaviour
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ;
 
         }
+    }
+
+    void StartInteractable() {
+
+        currMaterial = startMaterial;
+
+        GetComponent<Collider>().sharedMaterial = currMaterial;
+        GetComponent<Rigidbody>().useGravity = true;
+        interacted = true;
+
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+
+
+        if ( currMaterial == maxFriction || currMaterial == basic) {
+
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ;
+
+        }
+
     }
 
     PhysicMaterial GetPhysicMaterial(int color) {
