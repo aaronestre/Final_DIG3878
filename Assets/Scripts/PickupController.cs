@@ -1,3 +1,8 @@
+// Group 5
+// Final Project
+// Filename: PickUpController.cs
+// Description: This is the main controller for the pick up functionality. It checks if the user can pick up a cube. Then if it does then it childs that cube to the specified area and is able to move around with the camera. The user can then either drop or throw the cube.
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

@@ -1,3 +1,8 @@
+// Group 5
+// Final Project
+// Filename: CollisionDetection.cs
+// Description: The is the main script for cubes. It detects if it collides with the paintbrush and using the color from the paintbrush will change to the coresponding PhysicsMaterial. You can also set a starting material that does not need to be interacted with first.
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

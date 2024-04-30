@@ -1,3 +1,8 @@
+// Group 5
+// Final Project
+// Filename: CollisionDetection.cs
+// Description: Fixed an issue with the objects rotating weirdly despite having their rotations locked.
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

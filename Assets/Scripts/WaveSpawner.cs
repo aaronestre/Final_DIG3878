@@ -1,3 +1,9 @@
+// Group 5
+// Final Project
+// Filename: WaveSpawner.cs
+// Description: This controlled the waves for level four of the game. It spawns a wave every 5 seconds.
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

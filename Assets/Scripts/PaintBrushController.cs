@@ -1,3 +1,8 @@
+// Group 5
+// Final Project
+// Filename: PaintBrushController.cs
+// Description: This is the main controller for the paint brush. It detects the user's input and switches to the correct color. It checks if the user can swipe and does when it can.
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -108,9 +113,4 @@ public class PaintBrushController : MonoBehaviour
 
     }
 
-    void SwitchUI(GameObject curr) {
-
-
-
-    }
 }

@@ -1,3 +1,8 @@
+// Group 5
+// Final Project
+// Filename: PressurePlate.cs
+// Description: The main controller for the pressure plates. Checks to see if the cubes are on the pressure plate. If one is, then the plate is activated.
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

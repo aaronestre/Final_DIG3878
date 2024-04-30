@@ -1,3 +1,8 @@
+// Group 5
+// Final Project
+// Filename: EscpGame.cs
+// Description: Exits the game when escape is pressed.
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

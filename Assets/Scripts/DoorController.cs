@@ -1,3 +1,8 @@
+// Group 5
+// Final Project
+// Filename: DoorController.cs
+// Description: Handles the doors. It checks if all of the pressure plates that are needed to open the door are active. If they are then the door slowly opens. If the are not then the door slowly closes.
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
